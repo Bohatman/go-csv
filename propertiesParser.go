@@ -30,11 +30,8 @@ func ReadProperties(path string) (map[string]string, error) {
 			return nil, errors.New("line is invalid format" + " (line " + strconv.Itoa(count) + ")" + ": " + line)
 		}
 		key := strings.Trim(line[0:separatorIndex], " ")
-		value := line[separatorIndex+1 : len(line)]
+		value := line[separatorIndex+1:]
 		toReturn[key] = value
-	}
-	if err := scanner.Err(); err != nil {
-		return nil, err
 	}
 	return toReturn, nil
 }
@@ -48,23 +45,10 @@ func getConfigString(prop map[string]string, key string, defaultValue string) st
 	}
 	return result
 }
-func getConfigStringArray(prop map[string]string, key string, defaultValue string) []string {
-	var result string
+func getConfigStringArray(prop map[string]string, key string, defaultValue []string) []string {
+	var result []string
 	if value, ok := prop[key]; ok {
-		result = value
-	} else {
-		result = defaultValue
-	}
-	return strings.Split(result, ",")
-}
-func getConfigInt(prop map[string]string, key string, defaultValue int) int {
-	var result int
-	if value, ok := prop[key]; ok {
-		tmp, err := strconv.Atoi(value)
-		if err != nil {
-			panic(key + " can not parse to integer(" + value + ")")
-		}
-		result = tmp
+		result = strings.Split(value, ",")
 	} else {
 		result = defaultValue
 	}
