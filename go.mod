@@ -1,4 +1,4 @@
-module github.com/Bohatman/go-cvs
+module github.com/Bohatman/go-csv
 
 go 1.16
 
