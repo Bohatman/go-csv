@@ -1,3 +1,4 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/Bohatman/go-csv)](https://goreportcard.com/report/github.com/Bohatman/go-csv)
 ## Simple Golang CSV(comma-separated values) reader
 
 ### Supported Go version
