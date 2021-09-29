@@ -15,7 +15,7 @@ Go-csv is available as a Go module.For 1.14+
 
 #### Installation
 
-> go get github.com/Bohatman/go-cvs
+```sh go get github.com/Bohatman/go-cvs ```
 
 #### Example
 
